@@ -1,7 +1,6 @@
 $(document).ready(function() {
     indexShow();
     $(".sidebar-menu a").on("click",function(){
-        debugger
         var url = $(this).data("path");
         if(url != "" && url != null){
             $.ajax({
@@ -20,7 +19,7 @@ $(document).ready(function() {
 });
 
 function indexShow(){
-    var url = "chartIndex";
+    var url = "/charts/chartIndex";
     $.ajax({
         url : url,
         type : "GET",
