@@ -1,21 +1,30 @@
 line={
-    line:function () {
+    getData:function () {
+        $.ajax({
+            url:"/charts/getRegisterCount",
+            type:"GET",
+            success:function (result) {
+                line.line(result);
+            },
+            error:function (result) {
+
+            }
+        })
+    },
+    line:function (result) {
+        ["拓扑管理", "网络管理", "主机管理", "数据库管理", "中间件管理", "标准应用管理", "告警管理", "监控首页", "历史数据查看", "报表管理", "用户管理", "通知方式", "自动巡检", "申请支持被管对象新版本", "申请修改用户基本信息", "其他"]
         var dom = document.getElementById("echarts_line");
         var myChart = echarts.init(dom);
-        var app = {};
         option = null;
         var base = +new Date(1968, 9, 3);
         var oneDay = 24 * 3600 * 1000;
         var date = [];
-
-        var data = [0];
-
-        for (var i = 1; i < 20; i++) {
+        var data = [];
+        for (var i = 0; i <result.length; i++) {
             var now = new Date(base += oneDay);
-            date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
-            data.push(i);
+            date.push(result[i].analysisDate.replace(/-/g,"/"));
+            data.push(result[i].count);
         }
-
         option = {
             tooltip: {
                 trigger: 'axis',

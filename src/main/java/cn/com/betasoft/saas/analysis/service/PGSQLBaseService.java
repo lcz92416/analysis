@@ -1,5 +1,8 @@
 package cn.com.betasoft.saas.analysis.service;
 
+import cn.com.betasoft.saas.analysis.model.ProblemTypeCountModel;
+import cn.com.betasoft.saas.analysis.model.RegisterCountModel;
+
 import java.util.List;
 
 /**
@@ -8,5 +11,15 @@ import java.util.List;
 
 public interface PGSQLBaseService {
 
-    public List<Object> selectUser();
+    /**
+     * 提取注册数据
+     * @return
+     */
+    public RegisterCountModel selectRegistersCount();
+
+    /**
+     * 提取问题模块
+     * @return
+     */
+    public List<ProblemTypeCountModel> selectProblemTypeCount();
 }

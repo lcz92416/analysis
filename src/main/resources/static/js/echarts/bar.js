@@ -1,13 +1,33 @@
 bar={
-    bar:function () {
+    getData:function () {
+        $.ajax({
+            url:"/charts/getProblemTypeCount",
+            type:"GET",
+            success:function (result) {
+                bar.bar(result);
+            },
+            error:function (result) {
+
+            }
+        })
+    },
+    bar:function (result) {
         var dom = document.getElementById("echarts_bar");
         var myChart = echarts.init(dom);
-        var app = {};
+        var type = [];
+        var count = [];
+        var title=""
+        for (var i = 0; i <result.length; i++) {
+            title=result[i].analysisDate;
+            type.push(result[i].type);
+            count.push(result[i].count);
+        }
+        debugger;
         option = null;
         option = {
             title : {
                 text: '提交问题模块分析',
-                subtext: '纯属虚构'
+                subtext: title
             },
             tooltip : {
                 trigger: 'axis'
@@ -25,7 +45,7 @@ bar={
             xAxis : [
                 {
                     type : 'category',
-                    data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                    data : type
                 }
             ],
             yAxis : [
@@ -35,9 +55,9 @@ bar={
             ],
             series : [
                 {
-                    name:'蒸发量',
+                    name:'问题数',
                     type:'bar',
-                    data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+                    data:count,
                     markPoint : {
                         data : [
                             {type : 'max', name: '最大值'},

@@ -1,5 +1,7 @@
 package cn.com.betasoft.saas.analysis.mapper;
 
+import cn.com.betasoft.saas.analysis.model.ProblemTypeCountModel;
+import cn.com.betasoft.saas.analysis.model.RegisterCountModel;
 import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
@@ -9,6 +11,11 @@ import java.util.List;
 
 public interface PGSQLBaseMapper {
     //    @SelectProvider(type= SysUserByMySqlProvider.class,method = "findSysByUserName")
-    @Select("select * from saas_order_user_in_vms")
-    public List<Object> selectUser();
+//    @Select("SELECT TO_CHAR(TO_TIMESTAMP(CREATETIME/1000::BIGINT), 'YYYY-MM-DD') AS registerDate , NOW() AS analysisDate, COUNT(*) AS count FROM  SAAS_COMMUNITY_USERINFO  GROUP BY registerDate ORDER BY registerDate;")
+    @Select("SELECT NOW() AS analysisDate, COUNT(*) AS count FROM  SAAS_COMMUNITY_USERINFO")
+    public RegisterCountModel selectRegistersCount();
+
+    @Select("SELECT NOW() AS analysisDate,WORKORDERTYPE,COUNT(*)  FROM SAAS_COMMUNITY_WORK_ORDER GROUP BY WORKORDERTYPE")
+    public List<ProblemTypeCountModel> selectProblemTypeCount();
+
 }

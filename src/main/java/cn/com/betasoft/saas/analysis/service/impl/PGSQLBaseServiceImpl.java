@@ -1,9 +1,8 @@
 package cn.com.betasoft.saas.analysis.service.impl;
 
-import cn.com.betasoft.saas.analysis.annotation.DataSourceTypeAnno;
 import cn.com.betasoft.saas.analysis.dao.PGSQLBaseDao;
-import cn.com.betasoft.saas.analysis.datasource.DataSourceEnum;
-import cn.com.betasoft.saas.analysis.mapper.PGSQLBaseMapper;
+import cn.com.betasoft.saas.analysis.model.ProblemTypeCountModel;
+import cn.com.betasoft.saas.analysis.model.RegisterCountModel;
 import cn.com.betasoft.saas.analysis.service.PGSQLBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +19,14 @@ public class PGSQLBaseServiceImpl implements PGSQLBaseService {
     @Autowired
     private PGSQLBaseDao pgsqlBaseDao;
 
-    @DataSourceTypeAnno(DataSourceEnum.pgsql)
-    public List<Object> selectUser() {
-        return pgsqlBaseDao.selectUser();
+    @Override
+    public RegisterCountModel selectRegistersCount() {
+        return pgsqlBaseDao.selectRegistersCount();
     }
+
+    @Override
+    public List<ProblemTypeCountModel> selectProblemTypeCount(){
+        return pgsqlBaseDao.selectProblemTypeCount();
+    }
+
 }

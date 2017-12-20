@@ -12,17 +12,8 @@ public class LoginController {
         return "index";
     }
 
-    @RequestMapping("/hello")
-    public String hello() {
-        return "hello";
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
         return "login";
-    }
-    @RequestMapping(value = "/chartIndex", method = RequestMethod.GET)
-    public String chartIndex() {
-        return "linechart";
     }
 }

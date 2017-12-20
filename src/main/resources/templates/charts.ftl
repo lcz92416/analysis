@@ -15,7 +15,9 @@
                     </div>
                 </section>
             </div>
-            <!-- Bar -->
+        </div>
+        <div class="row">
+        <!-- Bar -->
             <div class="col-lg-6">
                 <section class="panel">
                     <header class="panel-heading">
@@ -85,8 +87,8 @@
 <script type="text/javascript" src="/js/echarts/pie.js"></script>
 
 <script>
-    line.line();
-    bar.bar();
+    line.getData();
+    bar.getData();
     groupBar.groupBar();
     pie.pie();
 </script>
