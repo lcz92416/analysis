@@ -12,7 +12,6 @@ line={
         })
     },
     line:function (result) {
-        ["拓扑管理", "网络管理", "主机管理", "数据库管理", "中间件管理", "标准应用管理", "告警管理", "监控首页", "历史数据查看", "报表管理", "用户管理", "通知方式", "自动巡检", "申请支持被管对象新版本", "申请修改用户基本信息", "其他"]
         var dom = document.getElementById("echarts_line");
         var myChart = echarts.init(dom);
         option = null;

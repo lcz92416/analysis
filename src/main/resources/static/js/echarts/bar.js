@@ -22,7 +22,6 @@ bar={
             type.push(result[i].type);
             count.push(result[i].count);
         }
-        debugger;
         option = null;
         option = {
             title : {

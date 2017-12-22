@@ -15,9 +15,7 @@
                     </div>
                 </section>
             </div>
-        </div>
-        <div class="row">
-        <!-- Bar -->
+            <!-- Bar -->
             <div class="col-lg-6">
                 <section class="panel">
                     <header class="panel-heading">
@@ -25,6 +23,78 @@
                     </header>
                     <div class="panel-body text-center"  style="position: relative">
                         <div id="echarts_bar" style="height: 350px;width: auto"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Pie -->
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading">
+                        饼图
+                    </header>
+                    <div class="panel-body text-center">
+                        <div id="echarts_pie_producttyperatio" style="height: 350px;width: auto"></div>
+                    </div>
+                </section>
+            </div>
+            <!-- Pie -->
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading">
+                        饼图
+                    </header>
+                    <div class="panel-body text-center">
+                        <div id="echarts_pie_itdepartment" style="height: 350px;width: auto"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Pie -->
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading">
+                        饼图
+                    </header>
+                    <div class="panel-body text-center">
+                        <div id="echarts_pie_agentratio" style="height: 500px;width: auto"></div>
+                    </div>
+                </section>
+            </div>
+            <!-- Pie -->
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading">
+                        饼图
+                    </header>
+                    <div class="panel-body text-center">
+                        <div id="echarts_pie_arearatio" style="height: 500px;width: auto"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Pie -->
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading">
+                        饼图
+                    </header>
+                    <div class="panel-body text-center">
+                        <div id="echarts_pie_industryratio" style="height: 450px;width: auto"></div>
+                    </div>
+                </section>
+            </div>
+            <!-- Pie -->
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading">
+                        饼图
+                    </header>
+                    <div class="panel-body text-center">
+                        <div id="ds" style="height: 450px;width: auto"></div>
                     </div>
                 </section>
             </div>
@@ -38,17 +108,6 @@
                     </header>
                     <div class="panel-body text-center">
                         <div id="echarts_groupBar" style="height: 350px;width: auto"></div>
-                    </div>
-                </section>
-            </div>
-            <!-- Pie -->
-            <div class="col-lg-6">
-                <section class="panel">
-                    <header class="panel-heading">
-                        饼图
-                    </header>
-                    <div class="panel-body text-center">
-                        <canvas id="echarts_pie" height="300" width="400"></canvas>
                     </div>
                 </section>
             </div>
@@ -90,5 +149,10 @@
     line.getData();
     bar.getData();
     groupBar.groupBar();
-    pie.pie();
+    pie.getITDepartmentData();
+    pie.getProductTypeRatio();
+    pie.getAgentRatio();
+    pie.getAreaRatio();
+    pie.getIndustryRatio();
+
 </script>

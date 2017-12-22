@@ -1,5 +1,6 @@
 package cn.com.betasoft.saas.analysis.task;
 
+import cn.com.betasoft.saas.analysis.model.ITDepartmentModel;
 import cn.com.betasoft.saas.analysis.model.ProblemTypeCountModel;
 import cn.com.betasoft.saas.analysis.model.RegisterCountModel;
 import cn.com.betasoft.saas.analysis.service.MySqlBaseService;
@@ -30,11 +31,11 @@ public class GetTask {
 
     @PostConstruct
     public void getInfo() {
-        long oneDay = 24 * 60 * 60 * 1000;
-        long initDelay  = getTimeMillis("16:38:00") - System.currentTimeMillis();
-        initDelay = initDelay > 0 ? initDelay : oneDay + initDelay;
-        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
-        scheduledExecutorService.scheduleAtFixedRate(new dataAnalysisStart(), initDelay, oneDay, TimeUnit.MILLISECONDS);
+//        long oneDay = 24 * 60 * 60 * 1000;
+//        long initDelay  = getTimeMillis("16:38:00") - System.currentTimeMillis();
+//        initDelay = initDelay > 0 ? initDelay : oneDay + initDelay;
+//        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+//        scheduledExecutorService.scheduleAtFixedRate(new dataAnalysisStart(), initDelay, oneDay, TimeUnit.MILLISECONDS);
     }
 
     /**
@@ -63,6 +64,8 @@ public class GetTask {
             mySqlBaseService.insertRegistersCount(registersCount);
             List<ProblemTypeCountModel> problemTypeCountModel = pgsqlBaseService.selectProblemTypeCount();
             mySqlBaseService.insertProblemTypeCount(problemTypeCountModel);
+            List<ITDepartmentModel> iTDepartmentModel = pgsqlBaseService.selectITDepartmentCount();
+            mySqlBaseService.insertITDepartment(iTDepartmentModel);
         }
     }
 }

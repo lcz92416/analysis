@@ -3,6 +3,7 @@ package cn.com.betasoft.saas.analysis.model;
 import java.sql.Date;
 
 /**
+ * 问题类型
  * created by lichenzhe on 2017/12/18
  */
 public class ProblemTypeCountModel {
@@ -10,6 +11,8 @@ public class ProblemTypeCountModel {
     public int count;
     public int workOrderType;
     public Date analysisDate;
+
+    //问题类型中文
     public String type;
 
     public Long getId() {

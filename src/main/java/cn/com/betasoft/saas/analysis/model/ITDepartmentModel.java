@@ -3,14 +3,17 @@ package cn.com.betasoft.saas.analysis.model;
 import java.sql.Date;
 
 /**
- * 注册数量
- * created by lichenzhe on 2017/12/18
+ * IT隶属部门
+ * created by lichenzhe on 2017/12/21
  */
-public class RegisterCountModel {
+public class ITDepartmentModel {
     public Long id;
     public int count;
-//    public Date registerDate;
+    public String departmentType;
     public Date analysisDate;
+
+    //部门中文
+    public String type;
 
     public Long getId() {
         return id;
@@ -28,13 +31,13 @@ public class RegisterCountModel {
         this.count = count;
     }
 
-//    public Date getRegisterDate() {
-//        return registerDate;
-//    }
-//
-//    public void setRegisterDate(Date registerDate) {
-//        this.registerDate = registerDate;
-//    }
+    public String getDepartmentType() {
+        return departmentType;
+    }
+
+    public void setDepartmentType(String departmentType) {
+        this.departmentType = departmentType;
+    }
 
     public Date getAnalysisDate() {
         return analysisDate;
@@ -42,5 +45,13 @@ public class RegisterCountModel {
 
     public void setAnalysisDate(Date analysisDate) {
         this.analysisDate = analysisDate;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

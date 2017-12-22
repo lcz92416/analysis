@@ -4,6 +4,7 @@ import cn.com.betasoft.saas.analysis.annotation.DataSourceTypeAnno;
 import cn.com.betasoft.saas.analysis.dao.PGSQLBaseDao;
 import cn.com.betasoft.saas.analysis.datasource.DataSourceEnum;
 import cn.com.betasoft.saas.analysis.mapper.PGSQLBaseMapper;
+import cn.com.betasoft.saas.analysis.model.ITDepartmentModel;
 import cn.com.betasoft.saas.analysis.model.ProblemTypeCountModel;
 import cn.com.betasoft.saas.analysis.model.RegisterCountModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,12 @@ public class PGSQLBaseDaoImpl implements PGSQLBaseDao {
     @DataSourceTypeAnno(DataSourceEnum.pgsql)
     public List<ProblemTypeCountModel> selectProblemTypeCount(){
         return pgsqlBaseMapper.selectProblemTypeCount();
+    }
+
+    @Override
+    @DataSourceTypeAnno(DataSourceEnum.pgsql)
+    public List<ITDepartmentModel> selectITDepartmentCount(){
+        return pgsqlBaseMapper.selectITDepartmentCount();
+
     }
 }

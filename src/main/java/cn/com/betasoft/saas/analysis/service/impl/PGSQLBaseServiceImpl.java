@@ -1,6 +1,7 @@
 package cn.com.betasoft.saas.analysis.service.impl;
 
 import cn.com.betasoft.saas.analysis.dao.PGSQLBaseDao;
+import cn.com.betasoft.saas.analysis.model.ITDepartmentModel;
 import cn.com.betasoft.saas.analysis.model.ProblemTypeCountModel;
 import cn.com.betasoft.saas.analysis.model.RegisterCountModel;
 import cn.com.betasoft.saas.analysis.service.PGSQLBaseService;
@@ -27,6 +28,11 @@ public class PGSQLBaseServiceImpl implements PGSQLBaseService {
     @Override
     public List<ProblemTypeCountModel> selectProblemTypeCount(){
         return pgsqlBaseDao.selectProblemTypeCount();
+    }
+
+    @Override
+    public List<ITDepartmentModel> selectITDepartmentCount(){
+        return pgsqlBaseDao.selectITDepartmentCount();
     }
 
 }

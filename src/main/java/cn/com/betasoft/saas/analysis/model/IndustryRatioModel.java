@@ -3,22 +3,16 @@ package cn.com.betasoft.saas.analysis.model;
 import java.sql.Date;
 
 /**
+ * 行业分布
  * created by lichenzhe on 2017/12/20
  */
 public class IndustryRatioModel {
-    public static final String TYPE_PARTNER = "partner";
-    public static final String TYPE_REGISTER = "register";
-    public static final String TYPE_ALL = "all";
 
     /**
      *  主键
      */
     private String id;
 
-    /**
-     * 类型 值包含 partner-运营商  register-注册用户  all-所有类型用户
-     */
-    private String type;
 
     /**
      * 行业
@@ -46,14 +40,6 @@ public class IndustryRatioModel {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getIndustry() {
@@ -92,7 +78,6 @@ public class IndustryRatioModel {
     public String toString() {
         return "IndustryRatioModel{" +
                 "id='" + id + '\'' +
-                ", type='" + type + '\'' +
                 ", industry='" + industry + '\'' +
                 ", count=" + count +
                 ", date='" + date + '\'' +

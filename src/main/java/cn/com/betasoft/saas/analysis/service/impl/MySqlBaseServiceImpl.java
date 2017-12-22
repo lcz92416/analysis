@@ -2,10 +2,10 @@ package cn.com.betasoft.saas.analysis.service.impl;
 
 import cn.com.betasoft.saas.analysis.dao.MySqlBaseDao;
 import cn.com.betasoft.saas.analysis.enums.ProblemTypeEnum;
-import cn.com.betasoft.saas.analysis.model.ProblemTypeCountModel;
-import cn.com.betasoft.saas.analysis.model.RegisterCountModel;
+import cn.com.betasoft.saas.analysis.model.*;
 import cn.com.betasoft.saas.analysis.processor.SysUserProcessor;
 import cn.com.betasoft.saas.analysis.service.MySqlBaseService;
+import cn.com.betasoft.saas.analysis.utils.ConfigUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * created by lichenzhe on 2017/12/11
@@ -75,4 +76,45 @@ public class MySqlBaseServiceImpl implements MySqlBaseService {
         }
     }
 
+    @Override
+    public List<ITDepartmentModel> selectITDepartmentCount(){
+        List<ITDepartmentModel> list=mySqlBaseDao.selectITDepartmentCount();
+        Map<String,String> typeMap= ConfigUtils.readTxtForMap("ITDepartmentConfig");
+        for(ITDepartmentModel iTDepartmentModel : list){
+            iTDepartmentModel.setType(typeMap.get(iTDepartmentModel.getDepartmentType()==null?"":iTDepartmentModel.getDepartmentType()));
+        }
+        return list;
+    }
+
+    @Override
+    public void insertITDepartment(List<ITDepartmentModel> list){
+        try{
+                for (ITDepartmentModel iTDepartmentModel : list) {
+                    mySqlBaseDao.insertITDepartment(iTDepartmentModel);
+                }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public List<ProductTypeRatioModel> selectProductTypeRatioCount(){
+        return mySqlBaseDao.selectProductTypeRatioCount();
+    }
+
+    @Override
+    public List<AgentRatioModel> selectAgentRatioCount(){
+        return mySqlBaseDao.selectAgentRatioCount();
+    }
+
+
+    @Override
+    public List<AreaRatioModel> selectAreaRatioCount(){
+        return mySqlBaseDao.selectAreaRatioCount();
+    }
+
+    @Override
+    public List<IndustryRatioModel> selectIndustryRatioCount(){
+        return mySqlBaseDao.selectIndustryRatioCount();
+    }
 }

@@ -1,5 +1,6 @@
 package cn.com.betasoft.saas.analysis.mapper;
 
+import cn.com.betasoft.saas.analysis.model.ITDepartmentModel;
 import cn.com.betasoft.saas.analysis.model.ProblemTypeCountModel;
 import cn.com.betasoft.saas.analysis.model.RegisterCountModel;
 import org.apache.ibatis.annotations.Select;
@@ -18,4 +19,6 @@ public interface PGSQLBaseMapper {
     @Select("SELECT NOW() AS analysisDate,WORKORDERTYPE,COUNT(*)  FROM SAAS_COMMUNITY_WORK_ORDER GROUP BY WORKORDERTYPE")
     public List<ProblemTypeCountModel> selectProblemTypeCount();
 
+    @Select("SELECT NOW() AS analysisDate,ITMANAGEDEPARTMENT as departmentType ,COUNT(*)  FROM SAAS_COMMUNITY_USERINFO GROUP BY departmentType")
+    public List<ITDepartmentModel> selectITDepartmentCount();
 }

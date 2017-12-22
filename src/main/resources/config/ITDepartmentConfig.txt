@@ -1,0 +1,6 @@
+itDepartment;;IT部门
+administration;;行政类部门
+financeDepartment;;财务类部门
+totalHandle;;总经办
+other;;其他部门
+;;暂无

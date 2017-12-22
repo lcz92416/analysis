@@ -1,5 +1,6 @@
 package cn.com.betasoft.saas.analysis.service;
 
+import cn.com.betasoft.saas.analysis.model.ITDepartmentModel;
 import cn.com.betasoft.saas.analysis.model.ProblemTypeCountModel;
 import cn.com.betasoft.saas.analysis.model.RegisterCountModel;
 
@@ -22,4 +23,10 @@ public interface PGSQLBaseService {
      * @return
      */
     public List<ProblemTypeCountModel> selectProblemTypeCount();
+
+    /**
+     * 提取部门信息
+     * @return
+     */
+    public List<ITDepartmentModel> selectITDepartmentCount();
 }

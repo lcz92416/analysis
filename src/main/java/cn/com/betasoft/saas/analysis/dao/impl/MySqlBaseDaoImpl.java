@@ -4,8 +4,7 @@ import cn.com.betasoft.saas.analysis.annotation.DataSourceTypeAnno;
 import cn.com.betasoft.saas.analysis.dao.MySqlBaseDao;
 import cn.com.betasoft.saas.analysis.datasource.DataSourceEnum;
 import cn.com.betasoft.saas.analysis.mapper.MySqlBaseMapper;
-import cn.com.betasoft.saas.analysis.model.ProblemTypeCountModel;
-import cn.com.betasoft.saas.analysis.model.RegisterCountModel;
+import cn.com.betasoft.saas.analysis.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -46,5 +45,43 @@ public class MySqlBaseDaoImpl implements MySqlBaseDao {
         mySqlBaseMapper.insertProblemTypeCount(problemTypeCountModel);
         Long l=problemTypeCountModel.getId();
         return l;
+    }
+
+    @DataSourceTypeAnno(DataSourceEnum.mysql)
+    @Override
+    public List<ITDepartmentModel> selectITDepartmentCount(){
+        return mySqlBaseMapper.selectITDepartmentCount();
+    }
+
+    @DataSourceTypeAnno(DataSourceEnum.mysql)
+    @Override
+    public Long insertITDepartment(ITDepartmentModel itDepartmentModel){
+        mySqlBaseMapper.insertITDepartment(itDepartmentModel);
+        Long l=itDepartmentModel.getId();
+        return l;
+    }
+
+    @DataSourceTypeAnno(DataSourceEnum.mysql)
+    @Override
+    public List<ProductTypeRatioModel> selectProductTypeRatioCount(){
+        return mySqlBaseMapper.selectProductTypeRatioCount();
+    }
+
+    @DataSourceTypeAnno(DataSourceEnum.mysql)
+    @Override
+    public List<AgentRatioModel> selectAgentRatioCount(){
+        return mySqlBaseMapper.selectAgentRatioCount();
+    }
+
+    @DataSourceTypeAnno(DataSourceEnum.mysql)
+    @Override
+    public List<AreaRatioModel> selectAreaRatioCount(){
+        return mySqlBaseMapper.selectAreaRatioCount();
+    }
+
+    @DataSourceTypeAnno(DataSourceEnum.mysql)
+    @Override
+    public List<IndustryRatioModel> selectIndustryRatioCount(){
+        return mySqlBaseMapper.selectIndustryRatioCount();
     }
 }

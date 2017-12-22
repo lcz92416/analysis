@@ -1,5 +1,6 @@
 package cn.com.betasoft.saas.analysis.dao;
 
+import cn.com.betasoft.saas.analysis.model.ITDepartmentModel;
 import cn.com.betasoft.saas.analysis.model.ProblemTypeCountModel;
 import cn.com.betasoft.saas.analysis.model.RegisterCountModel;
 
@@ -12,4 +13,6 @@ public interface PGSQLBaseDao {
     public RegisterCountModel selectRegistersCount();
 
     public List<ProblemTypeCountModel> selectProblemTypeCount();
+
+    public List<ITDepartmentModel> selectITDepartmentCount();
 }
