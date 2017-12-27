@@ -84,4 +84,10 @@ public class MySqlBaseDaoImpl implements MySqlBaseDao {
     public List<IndustryRatioModel> selectIndustryRatioCount(){
         return mySqlBaseMapper.selectIndustryRatioCount();
     }
+
+    @DataSourceTypeAnno(DataSourceEnum.mysql)
+    @Override
+    public String getCollectionTime(){
+        return mySqlBaseMapper.getCollectionTime();
+    }
 }

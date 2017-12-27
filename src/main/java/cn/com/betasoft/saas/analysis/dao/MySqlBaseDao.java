@@ -18,5 +18,6 @@ public interface MySqlBaseDao {
     public List<AgentRatioModel> selectAgentRatioCount();
     public List<AreaRatioModel> selectAreaRatioCount();
     public List<IndustryRatioModel> selectIndustryRatioCount();
+    public String getCollectionTime();
 
 }

@@ -22,19 +22,19 @@ public class PGSQLBaseDaoImpl implements PGSQLBaseDao {
     private PGSQLBaseMapper pgsqlBaseMapper;
 
     @Override
-    @DataSourceTypeAnno(DataSourceEnum.pgsql)
+//    @DataSourceTypeAnno(DataSourceEnum.pgsql)
     public RegisterCountModel selectRegistersCount(){
         return pgsqlBaseMapper.selectRegistersCount();
     }
 
     @Override
-    @DataSourceTypeAnno(DataSourceEnum.pgsql)
+//    @DataSourceTypeAnno(DataSourceEnum.pgsql)
     public List<ProblemTypeCountModel> selectProblemTypeCount(){
         return pgsqlBaseMapper.selectProblemTypeCount();
     }
 
     @Override
-    @DataSourceTypeAnno(DataSourceEnum.pgsql)
+//    @DataSourceTypeAnno(DataSourceEnum.pgsql)
     public List<ITDepartmentModel> selectITDepartmentCount(){
         return pgsqlBaseMapper.selectITDepartmentCount();
 

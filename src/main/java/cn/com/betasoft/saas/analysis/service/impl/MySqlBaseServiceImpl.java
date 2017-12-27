@@ -72,7 +72,7 @@ public class MySqlBaseServiceImpl implements MySqlBaseService {
             }
         }
         }catch (Exception e){
-            System.out.println(e);
+            log.info("insertProblemTypeCount error:"+e);
         }
     }
 
@@ -93,7 +93,7 @@ public class MySqlBaseServiceImpl implements MySqlBaseService {
                     mySqlBaseDao.insertITDepartment(iTDepartmentModel);
                 }
         }catch (Exception e){
-            System.out.println(e);
+            log.info("insertITDepartment error:"+e);
         }
     }
 
@@ -116,5 +116,10 @@ public class MySqlBaseServiceImpl implements MySqlBaseService {
     @Override
     public List<IndustryRatioModel> selectIndustryRatioCount(){
         return mySqlBaseDao.selectIndustryRatioCount();
+    }
+
+    @Override
+    public String getCollectionTime(){
+        return mySqlBaseDao.getCollectionTime();
     }
 }

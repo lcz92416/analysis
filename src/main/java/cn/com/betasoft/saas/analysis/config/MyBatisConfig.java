@@ -43,21 +43,22 @@ public class MyBatisConfig{
         return DataSourceBuilder.create().build();
     }
 
-    @Bean("pgsqlDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.pgsql")
-    public DataSource pgsqlDataSource() throws Exception {
-        return DataSourceBuilder.create().build();
-    }
+//    @Bean("pgsqlDataSource")
+//    @ConfigurationProperties(prefix = "spring.datasource.pgsql")
+//    public DataSource pgsqlDataSource() throws Exception {
+//        return DataSourceBuilder.create().build();
+//    }
 
     /**
      * @Qualifier 根据名称进行注入，通常是在具有相同的多个类型的实例的一个注入（例如有多个DataSource类型的实例）
      */
     @Bean("dynamicDataSource")
-    public DynamicDataSource dynamicDataSource(@Qualifier("mysqlDataSource") DataSource mysqlDataSource,
-                                               @Qualifier("pgsqlDataSource") DataSource pgsqlDataSource) {
+    public DynamicDataSource dynamicDataSource(@Qualifier("mysqlDataSource") DataSource mysqlDataSource
+//            ,@Qualifier("pgsqlDataSource") DataSource pgsqlDataSource
+    ) {
         Map<Object, Object> targetDataSources = new HashMap<Object, Object>();
         targetDataSources.put(DataSourceEnum.mysql, mysqlDataSource);
-        targetDataSources.put(DataSourceEnum.pgsql, pgsqlDataSource);
+//        targetDataSources.put(DataSourceEnum.pgsql, pgsqlDataSource);
 
         DynamicDataSource dataSource = new DynamicDataSource();
         dataSource.setTargetDataSources(targetDataSources);// 该方法是AbstractRoutingDataSource的方法

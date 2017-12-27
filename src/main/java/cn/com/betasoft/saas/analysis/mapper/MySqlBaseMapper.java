@@ -21,7 +21,7 @@ public interface MySqlBaseMapper {
     @Options(useGeneratedKeys = true, keyProperty = "registerCountModel.id", keyColumn = "id")
     public void insertRegistersCount(@Param("registerCountModel") RegisterCountModel registerCountModel);
 
-    @Select("select * from problem_type order by workordertype")
+    @Select("SELECT * FROM PROBLEM_TYPE WHERE ANALYSISDATE=(SELECT MAX(ANALYSISDATE) FROM PROBLEM_TYPE) ORDER BY WORKORDERTYPE")
     public List<ProblemTypeCountModel> selectProblemTypeCount();
 
     @Insert("INSERT INTO problem_type(count,workordertype,analysisDate) VALUES(#{problemTypeCountModel.count},#{problemTypeCountModel.workOrderType},#{problemTypeCountModel.analysisDate} )")
@@ -47,4 +47,7 @@ public interface MySqlBaseMapper {
 
     @Select("SELECT * FROM infosystem_industryratio WHERE date=(SELECT MAX(date) FROM infosystem_industryratio)")
     public List<IndustryRatioModel> selectIndustryRatioCount();
+
+    @Select("SELECT DISTINCT date FROM infosystem_agentratio WHERE date=(SELECT MAX(date) FROM infosystem_agentratio)")
+    public String getCollectionTime();
 }

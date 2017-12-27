@@ -1,6 +1,8 @@
 package cn.com.betasoft.saas.analysis.mapper;
 
 
+import cn.com.betasoft.saas.analysis.annotation.DataSourceTypeAnno;
+import cn.com.betasoft.saas.analysis.datasource.DataSourceEnum;
 import cn.com.betasoft.saas.analysis.model.SysRoleModel;
 import cn.com.betasoft.saas.analysis.model.SysUserModel;
 

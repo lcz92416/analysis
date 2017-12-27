@@ -76,4 +76,10 @@ public interface MySqlBaseService {
      */
     public List<IndustryRatioModel> selectIndustryRatioCount();
 
+    /**
+     * 获取采集时间
+     * @return
+     */
+    public String getCollectionTime();
+
 }

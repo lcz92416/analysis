@@ -60,6 +60,18 @@ pie={
             }
         })
     },
+    getProblemType:function () {
+        $.ajax({
+            url:"/charts/getProblemTypeCount",
+            type:"GET",
+            success:function (result) {
+                pie.pie(result,"getProblemTypeCount");
+            },
+            error:function (result) {
+
+            }
+        })
+    },
     pie:function (result,dataType) {
         var type = [];
         var count = [];
@@ -88,11 +100,11 @@ pie={
                 json.push({value:result[i].count, name:result[i].type})
             }
         }
-        //授权类型对比
+        //授权类型占比
         if("getProductTypeRatio"==dataType){
             dom = document.getElementById("echarts_pie_producttyperatio");
             myChart = echarts.init(dom);
-            text="授权类型对比";
+            text="授权类型占比";
             subtext=result[0].date;
             for (var i = 0; i <result.length; i++) {
                 type.push(result[i].productType);
@@ -137,7 +149,17 @@ pie={
                 json.push({value:result[i].count, name:result[i].industry})
             }
         }
-
+        //提交问题模块分布
+        if("getProblemTypeCount"==dataType){
+            dom = document.getElementById("problem_type");
+            myChart = echarts.init(dom);
+            text="提交问题模块分布";
+            subtext=result[0].analysisDate;
+            for (var i = 0; i <result.length; i++) {
+                type.push(result[i].type);
+                json.push({value:result[i].count, name:result[i].type})
+            }
+        }
         option = null;
         option = {
             title: {
