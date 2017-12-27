@@ -111,7 +111,6 @@ public class ChartsController {
     @ResponseBody
     public List<AreaRatioModel> getAreaRatio() {
         List<AreaRatioModel> list = new ArrayList<>();
-
         try {
             list = mySqlBaseService.selectAreaRatioCount();
         } catch (Exception e) {

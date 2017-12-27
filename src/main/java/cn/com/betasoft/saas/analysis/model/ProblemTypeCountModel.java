@@ -7,19 +7,20 @@ import java.sql.Date;
  * created by lichenzhe on 2017/12/18
  */
 public class ProblemTypeCountModel {
-    public Long id;
+    public String id;
     public int count;
-    public int workOrderType;
-    public Date analysisDate;
+    public String modulename;
+    public String date;
+    public Date createTime;
 
-    //问题类型中文
-    public String type;
+//    //问题类型中文
+//    public String type;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -31,27 +32,27 @@ public class ProblemTypeCountModel {
         this.count = count;
     }
 
-    public int getWorkOrderType() {
-        return workOrderType;
+    public String getModulename() {
+        return modulename;
     }
 
-    public void setWorkOrderType(int workOrderType) {
-        this.workOrderType = workOrderType;
+    public void setModulename(String modulename) {
+        this.modulename = modulename;
     }
 
-    public Date getAnalysisDate() {
-        return analysisDate;
+    public String getDate() {
+        return date;
     }
 
-    public void setAnalysisDate(Date analysisDate) {
-        this.analysisDate = analysisDate;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getType() {
-        return type;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

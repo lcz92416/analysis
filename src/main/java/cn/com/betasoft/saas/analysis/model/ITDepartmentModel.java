@@ -7,19 +7,19 @@ import java.sql.Date;
  * created by lichenzhe on 2017/12/21
  */
 public class ITDepartmentModel {
-    public Long id;
+    public String id;
     public int count;
-    public String departmentType;
-    public Date analysisDate;
+    public String itdepartment;
+    public String date;
+    public Date createTime;
+//    //部门中文
+//    public String type;
 
-    //部门中文
-    public String type;
-
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -31,27 +31,28 @@ public class ITDepartmentModel {
         this.count = count;
     }
 
-    public String getDepartmentType() {
-        return departmentType;
+    public String getItdepartment() {
+        return itdepartment;
     }
 
-    public void setDepartmentType(String departmentType) {
-        this.departmentType = departmentType;
+    public void setItdepartment(String itdepartment) {
+        this.itdepartment = itdepartment;
     }
 
-    public Date getAnalysisDate() {
-        return analysisDate;
+    public String getDate() {
+        return date;
     }
 
-    public void setAnalysisDate(Date analysisDate) {
-        this.analysisDate = analysisDate;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getType() {
-        return type;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
+
 }

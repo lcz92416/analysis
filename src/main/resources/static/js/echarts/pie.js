@@ -94,10 +94,10 @@ pie={
              myChart = echarts.init(dom);
             text="IT隶属部门分布";
             height="53%";
-            subtext=result[0].analysisDate;
+            subtext=result[0].date;
             for (var i = 0; i <result.length; i++) {
-                type.push(result[i].type);
-                json.push({value:result[i].count, name:result[i].type})
+                type.push(result[i].itdepartment);
+                json.push({value:result[i].count, name:result[i].itdepartment})
             }
         }
         //授权类型占比
@@ -118,9 +118,9 @@ pie={
             text="运营商，代理商分布";
             subtext=result[0].date;
             size="60%";
-            height="45%";
+            height="55%";
             for (var i = 0; i <result.length; i++) {
-                type.push(result[i].agentname);
+                // type.push(result[i].agentname);
                 json.push({value:result[i].count, name:result[i].agentname})
             }
         }
@@ -130,11 +130,16 @@ pie={
             myChart = echarts.init(dom);
             text="地域分布";
             subtext=result[0].date;
-            size="60%";
-            height="55%";
+            size="70%";
+            height="47%";
             for (var i = 0; i <result.length; i++) {
-                type.push(result[i].province);
-                json.push({value:result[i].count, name:result[i].province})
+                if(null == result[i].province || ""==result[i].province){
+                    type.push("未填写");
+                    json.push({value:result[i].count, name:"未填写"})
+                }else{
+                    type.push(result[i].province);
+                    json.push({value:result[i].count, name:result[i].province})
+                }
             }
         }
         //用户行业分布
@@ -156,8 +161,8 @@ pie={
             text="提交问题模块分布";
             subtext=result[0].analysisDate;
             for (var i = 0; i <result.length; i++) {
-                type.push(result[i].type);
-                json.push({value:result[i].count, name:result[i].type})
+                type.push(result[i].modulename);
+                json.push({value:result[i].count, name:result[i].modulename})
             }
         }
         option = null;

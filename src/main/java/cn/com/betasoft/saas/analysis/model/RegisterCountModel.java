@@ -7,16 +7,16 @@ import java.sql.Date;
  * created by lichenzhe on 2017/12/18
  */
 public class RegisterCountModel {
-    public Long id;
+    public String id;
     public int count;
-//    public Date registerDate;
-    public Date analysisDate;
+    public String date;
+    public Date createTime;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -28,19 +28,19 @@ public class RegisterCountModel {
         this.count = count;
     }
 
-//    public Date getRegisterDate() {
-//        return registerDate;
-//    }
-//
-//    public void setRegisterDate(Date registerDate) {
-//        this.registerDate = registerDate;
-//    }
-
-    public Date getAnalysisDate() {
-        return analysisDate;
+    public String getDate() {
+        return date;
     }
 
-    public void setAnalysisDate(Date analysisDate) {
-        this.analysisDate = analysisDate;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

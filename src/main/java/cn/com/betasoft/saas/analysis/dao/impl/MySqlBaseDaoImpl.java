@@ -27,9 +27,9 @@ public class MySqlBaseDaoImpl implements MySqlBaseDao {
 
     @DataSourceTypeAnno(DataSourceEnum.mysql)
     @Override
-    public Long insertRegistersCount(RegisterCountModel registerCountModel){
+    public String insertRegistersCount(RegisterCountModel registerCountModel){
             mySqlBaseMapper.insertRegistersCount(registerCountModel);
-            Long l=registerCountModel.getId();
+        String l=registerCountModel.getId();
         return l;
     }
 
@@ -41,9 +41,9 @@ public class MySqlBaseDaoImpl implements MySqlBaseDao {
 
     @DataSourceTypeAnno(DataSourceEnum.mysql)
     @Override
-    public Long insertProblemTypeCount(ProblemTypeCountModel problemTypeCountModel){
+    public String insertProblemTypeCount(ProblemTypeCountModel problemTypeCountModel){
         mySqlBaseMapper.insertProblemTypeCount(problemTypeCountModel);
-        Long l=problemTypeCountModel.getId();
+        String l=problemTypeCountModel.getId();
         return l;
     }
 
@@ -55,9 +55,9 @@ public class MySqlBaseDaoImpl implements MySqlBaseDao {
 
     @DataSourceTypeAnno(DataSourceEnum.mysql)
     @Override
-    public Long insertITDepartment(ITDepartmentModel itDepartmentModel){
+    public String insertITDepartment(ITDepartmentModel itDepartmentModel){
         mySqlBaseMapper.insertITDepartment(itDepartmentModel);
-        Long l=itDepartmentModel.getId();
+        String l=itDepartmentModel.getId();
         return l;
     }
 

@@ -51,30 +51,7 @@
                 </section>
             </div>
         </div>
-        <div class="row">
-            <!-- Pie -->
-            <div class="col-lg-6">
-                <section class="panel">
-                    <header class="panel-heading">
-                        运营商，代理商分布
-                    </header>
-                    <div class="panel-body text-center">
-                        <div id="echarts_pie_agentratio" style="height: 500px;width: auto"></div>
-                    </div>
-                </section>
-            </div>
-            <!-- Pie -->
-            <div class="col-lg-6">
-                <section class="panel">
-                    <header class="panel-heading">
-                        地域分布
-                    </header>
-                    <div class="panel-body text-center">
-                        <div id="echarts_pie_arearatio" style="height: 500px;width: auto"></div>
-                    </div>
-                </section>
-            </div>
-        </div>
+
         <div class="row">
             <!-- Pie -->
             <div class="col-lg-6">
@@ -99,6 +76,30 @@
                 </section>
             </div>
         </div>
+            <div class="row">
+                <!-- Pie -->
+                <div class="col-lg-6">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            运营商，代理商分布
+                        </header>
+                        <div class="panel-body text-center">
+                            <div id="echarts_pie_agentratio" style="height: 600px;width: auto"></div>
+                        </div>
+                    </section>
+                </div>
+                <!-- Pie -->
+                <div class="col-lg-6">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            地域分布
+                        </header>
+                        <div class="panel-body text-center">
+                            <div id="echarts_pie_arearatio" style="height: 600px;width: auto"></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
         <#--<div class="row">-->
             <#--<!-- Radar &ndash;&gt;-->
             <#--<div class="col-lg-6">-->

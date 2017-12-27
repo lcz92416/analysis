@@ -14,24 +14,24 @@ import java.util.List;
  */
 
 public interface MySqlBaseMapper {
-    @Select("select * from register_count")
+    @Select("select * from infosystem_registercount")
     public List<RegisterCountModel> selectRegistersCount();
 
     @Insert("INSERT INTO register_count(count,analysisDate) VALUES(#{registerCountModel.count},#{registerCountModel.analysisDate} )")
     @Options(useGeneratedKeys = true, keyProperty = "registerCountModel.id", keyColumn = "id")
     public void insertRegistersCount(@Param("registerCountModel") RegisterCountModel registerCountModel);
 
-    @Select("SELECT * FROM PROBLEM_TYPE WHERE ANALYSISDATE=(SELECT MAX(ANALYSISDATE) FROM PROBLEM_TYPE) ORDER BY WORKORDERTYPE")
+    @Select("SELECT * FROM mainweb_workorderratio WHERE date=(SELECT MAX(date) FROM mainweb_workorderratio) ORDER BY modulename")
     public List<ProblemTypeCountModel> selectProblemTypeCount();
 
     @Insert("INSERT INTO problem_type(count,workordertype,analysisDate) VALUES(#{problemTypeCountModel.count},#{problemTypeCountModel.workOrderType},#{problemTypeCountModel.analysisDate} )")
     @Options(useGeneratedKeys = true, keyProperty = "problemTypeCountModel.id", keyColumn = "id")
     public void insertProblemTypeCount(@Param("problemTypeCountModel") ProblemTypeCountModel problemTypeCountModel);
 
-    @Select("SELECT * FROM IT_DEPARTMENT WHERE ANALYSISDATE=(SELECT MAX(ANALYSISDATE) FROM IT_DEPARTMENT)")
+    @Select("SELECT * FROM INFOSYSTEM_ITDEPARTMENTRATIO WHERE DATE=(SELECT MAX(DATE) FROM INFOSYSTEM_ITDEPARTMENTRATIO)")
     public List<ITDepartmentModel> selectITDepartmentCount();
 
-    @Insert("INSERT INTO it_department(count,departmentType,analysisDate) VALUES(#{itDepartmentModel.count},#{itDepartmentModel.departmentType},#{itDepartmentModel.analysisDate} )")
+    @Insert("INSERT INTO INFOSYSTEM_ITDEPARTMENTRATIO(count,departmentType,analysisDate) VALUES(#{itDepartmentModel.count},#{itDepartmentModel.itdepartment},#{itDepartmentModel.date},#{itDepartmentModel.createtime} )")
     @Options(useGeneratedKeys = true, keyProperty = "itDepartmentModel.id", keyColumn = "id")
     public void insertITDepartment(@Param("itDepartmentModel") ITDepartmentModel itDepartmentModel);
 
@@ -42,7 +42,7 @@ public interface MySqlBaseMapper {
     @Select("SELECT * FROM infosystem_agentratio WHERE date=(SELECT MAX(date) FROM infosystem_agentratio)")
     public List<AgentRatioModel> selectAgentRatioCount();
 
-    @Select("SELECT * FROM infosystem_arearatio WHERE date=(SELECT MAX(date) FROM infosystem_arearatio)")
+    @Select("SELECT province,sum(count) as count,date FROM infosystem_arearatio WHERE date=(SELECT MAX(date) FROM infosystem_arearatio) GROUP BY province")
     public List<AreaRatioModel> selectAreaRatioCount();
 
     @Select("SELECT * FROM infosystem_industryratio WHERE date=(SELECT MAX(date) FROM infosystem_industryratio)")

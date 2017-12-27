@@ -34,43 +34,43 @@ public class MySqlBaseServiceImpl implements MySqlBaseService {
     }
 
     @Override
-    public Long insertRegistersCount(RegisterCountModel registersCountModel) {
+    public String insertRegistersCount(RegisterCountModel registersCountModel) {
         return mySqlBaseDao.insertRegistersCount(registersCountModel);
     }
 
     @Override
     public List<ProblemTypeCountModel> selectProblemTypeCount(){
         List<ProblemTypeCountModel> list=mySqlBaseDao.selectProblemTypeCount();
-        for(ProblemTypeCountModel problemTypeCountModel : list){
-            problemTypeCountModel.setType(ProblemTypeEnum.getType(problemTypeCountModel.getWorkOrderType()));
-        }
+//        for(ProblemTypeCountModel problemTypeCountModel : list){
+//            problemTypeCountModel.setType(ProblemTypeEnum.getType(problemTypeCountModel.getWorkOrderType()));
+//        }
         return list;
     }
 
     @Override
     public void insertProblemTypeCount(List<ProblemTypeCountModel> list){
         try{
-        List<ProblemTypeCountModel> result=new ArrayList<>();
-        if(list != null && list.size()>0) {
-            Date date = list.get(0).getAnalysisDate();
-            List<Integer> intList=new ArrayList<>();
-            for (ProblemTypeCountModel problemTypeCountModel : list) {
-                    intList.add(problemTypeCountModel.getWorkOrderType());
-            }
-            result.addAll(list);
-            for (int i = 0; i < 16; i++) {
-                if(!intList.contains(i)) {
-                    ProblemTypeCountModel countModel = new ProblemTypeCountModel();
-                    countModel.setAnalysisDate(date);
-                    countModel.setCount(0);
-                    countModel.setWorkOrderType(i);
-                    result.add(countModel);
-                }
-            }
-            for (ProblemTypeCountModel problemTypeCountModel : result) {
-                mySqlBaseDao.insertProblemTypeCount(problemTypeCountModel);
-            }
-        }
+//        List<ProblemTypeCountModel> result=new ArrayList<>();
+//        if(list != null && list.size()>0) {
+//            Date date = list.get(0).getAnalysisDate();
+//            List<Integer> intList=new ArrayList<>();
+//            for (ProblemTypeCountModel problemTypeCountModel : list) {
+//                    intList.add(problemTypeCountModel.getWorkOrderType());
+//            }
+//            result.addAll(list);
+//            for (int i = 0; i < 16; i++) {
+//                if(!intList.contains(i)) {
+//                    ProblemTypeCountModel countModel = new ProblemTypeCountModel();
+//                    countModel.setAnalysisDate(date);
+//                    countModel.setCount(0);
+//                    countModel.setWorkOrderType(i);
+//                    result.add(countModel);
+//                }
+//            }
+//            for (ProblemTypeCountModel problemTypeCountModel : result) {
+//                mySqlBaseDao.insertProblemTypeCount(problemTypeCountModel);
+//            }
+//        }
         }catch (Exception e){
             log.info("insertProblemTypeCount error:"+e);
         }
@@ -79,10 +79,10 @@ public class MySqlBaseServiceImpl implements MySqlBaseService {
     @Override
     public List<ITDepartmentModel> selectITDepartmentCount(){
         List<ITDepartmentModel> list=mySqlBaseDao.selectITDepartmentCount();
-        Map<String,String> typeMap= ConfigUtils.readTxtForMap("ITDepartmentConfig");
-        for(ITDepartmentModel iTDepartmentModel : list){
-            iTDepartmentModel.setType(typeMap.get(iTDepartmentModel.getDepartmentType()==null?"":iTDepartmentModel.getDepartmentType()));
-        }
+//        Map<String,String> typeMap= ConfigUtils.readTxtForMap("ITDepartmentConfig");
+//        for(ITDepartmentModel iTDepartmentModel : list){
+//            iTDepartmentModel.setType(typeMap.get(iTDepartmentModel.getItdepartment()==null?"":iTDepartmentModel.getItdepartment()));
+//        }
         return list;
     }
 

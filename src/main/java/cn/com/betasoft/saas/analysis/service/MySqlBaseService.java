@@ -24,7 +24,7 @@ public interface MySqlBaseService {
      * @param registersCountModel
      * @return
      */
-    public Long insertRegistersCount(RegisterCountModel registersCountModel);
+    public String insertRegistersCount(RegisterCountModel registersCountModel);
 
     /**
      * 提取问题模块
