@@ -28,7 +28,7 @@ import java.util.Map;
  * 2）创建SqlSessionFactory 3）配置事务管理器，除非需要使用事务，否则不用配置
  */
 @Configuration // 该注解类似于spring配置文件
-@MapperScan(basePackages = "cn.com.betasoft.saas.analysis.mapper")
+@MapperScan(basePackages = "cn.com.analysis.mapper")
 public class MyBatisConfig{
 
     /**

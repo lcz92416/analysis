@@ -32,7 +32,7 @@ import java.util.HashMap;
 //@EnableBatchProcessing
 //@ComponentScan(basePackageClasses = DefaultBatchConfigurer.class)
 public class BatchConfiguration {
-    private static final String SELECT_REGISTERS_COUNT = "SELECT  TO_CHAR(TO_TIMESTAMP(CREATETIME/1000::BIGINT), 'YYYY-MM-DD') AS D ,  COUNT(*)  FROM  SAAS_COMMUNITY_USERINFO  GROUP BY D ORDER BY D;";
+    private static final String SELECT_REGISTERS_COUNT = "SELECT  TO_CHAR(TO_TIMESTAMP(CREATETIME/1000::BIGINT), 'YYYY-MM-DD') AS D ,  COUNT(*)  FROM  COMMUNITY_USERINFO  GROUP BY D ORDER BY D;";
     private static final String INSERT_REGISTERS_COUNT  = "INSERT INTO  (count,registerDate,analysisDate) VALUES ()";
 
     @Bean

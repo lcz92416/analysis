@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
 @Component
 @Aspect
 public class DataSourceAspect {
-    @Pointcut("execution(* cn.com.betasoft.saas.analysis.dao..*(..)) " +
+    @Pointcut("execution(* cn.com.analysis.dao..*(..)) " +
             "&& @annotation(cn.com.analysis.annotation.DataSourceTypeAnno)")
     public void dataSourcePointcut() {
     }

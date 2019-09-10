@@ -11,7 +11,7 @@ import cn.com.analysis.model.ProblemTypeCountModel;
 import cn.com.analysis.model.ProductTypeRatioModel;
 import cn.com.analysis.model.RegisterCountModel;
 import cn.com.analysis.dao.MySqlBaseDao;
-import cn.com.betasoft.saas.analysis.model.*;
+import cn.com.analysis.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

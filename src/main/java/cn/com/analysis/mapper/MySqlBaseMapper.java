@@ -7,7 +7,7 @@ import cn.com.analysis.model.IndustryRatioModel;
 import cn.com.analysis.model.ProblemTypeCountModel;
 import cn.com.analysis.model.ProductTypeRatioModel;
 import cn.com.analysis.model.RegisterCountModel;
-import cn.com.betasoft.saas.analysis.model.*;
+import cn.com.analysis.model.*;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
