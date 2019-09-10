@@ -1,8 +1,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.com.betasoft.saas.analysis.mapper.SysUserByMySqlMapper">
-    <resultMap id="sysUserMap" type="cn.com.betasoft.saas.analysis.model.SysUserModel" >
+<mapper namespace="cn.com.analysis.mapper.SysUserByMySqlMapper">
+    <resultMap id="sysUserMap" type="cn.com.analysis.model.SysUserModel" >
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="id"          property="id"        jdbcType="VARCHAR" />
         <result column="username"        property="username"      jdbcType="VARCHAR" />
@@ -13,7 +13,7 @@
     <select id="findSysByUserName" resultMap="sysUserMap">
         SELECT * from sys_user WHERE username = #{0}
     </select>
-    <select id="findRolesByUserName" resultType="cn.com.betasoft.saas.analysis.model.SysRoleModel">
+    <select id="findRolesByUserName" resultType="cn.com.analysis.model.SysRoleModel">
         SELECT
           sysrole.id,
           sysrole.roleName
